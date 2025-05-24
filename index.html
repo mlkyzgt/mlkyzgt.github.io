@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Çiz Bakalım</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- Başlangıç ekranı: Oyun başlatma ve nasıl oynanır butonları -->
+    <div id="baslangicEkrani">
+        <h1>ÇİZ BAKALIM</h1>
+        <button id="baslatButonu">OYUNU BAŞLAT</button>
+        <button id="nasilOynanir">NASIL OYNANILIR?</button>
+    </div>
+
+    <!-- Nasıl oynanır penceresi, başlangıçta gizlidir butona basıldığında pencere gözükür-->
+    <div id="kurallarPenceresi" style="display: none;" class="modal">
+        <div class="modal-icerik">
+            <!-- Pencereyi kapatma butonu -->
+            <span id="kapat" class="kapat">&times;</span>
+            <h3>Nasıl Oynanılır?</h3>
+            <p>1. Her soruda adım adım çizim yönergeleri gelecektir.</p>
+            <p>2. Yönergeleri takip ederek nesneyi çizin.</p>
+            <p>3. Tahmininizi yazıp 'Tahmini Kontrol Et' butonuna tıklayın.</p>
+            <p>4. Doğru tahminlerde puan kazanırsınız. Ne kadar hızlı bulursanız o kadar fazla puan kazanırsınız!</p>
+        </div>
+    </div>
+
+    <!-- Oyun alanı, başlangıçta gizlidir butona basınca gözükür -->
+    <section class="container" style="display: none;">
+        <h2>ÇİZ BAKALIM</h2>
+        <!-- Üst alanda yönergeler, skor, süre ve ses kontrol bulunur-->
+        <div class="ustAlan">
+            <div id="sorular">
+                <div id="yonergelerAlani">Yönerge:</div>
+                <div id="yonergeBtn">
+                    <button id="oncekiYonergeBtn">Önceki Yönerge</button>
+                    <button id="sonrakiYonergeBtn">Sonraki Yönerge</button>
+                </div>
+            </div>
+
+            <!-- Tahmin sonucu ve puan gösterimi -->
+            <div id="sureVePuan">
+                <div id="sonucAlani">Sonuç: </div>
+                <div id="puanAlani">Toplam Puan: 0</div>
+                <p id="zamanSayaci">Süre: 60s</p>
+                <button id="sonrakiSoruBtn">Sonraki Soru</button>
+            </div>
+
+            <!-- Ses aç/kapat butonu -->
+            <button id="sesKontrolBtn" title="Sesi Aç/Kapat">🔊</button>
+        </div>
+
+        <!-- Canvas ile yapılan çizim alanı ve maskot resmi -->
+        <div id="cizimTahtasiVeMaskot">
+            <canvas id="cizimTahtasi"></canvas>
+            <img src="./images/Maskot.png" alt="Maskot">
+        </div>
+
+        <!-- Alt alanda çizim araçları ve tahmin alanı bulunur -->
+        <div class="altAlan">
+            <div id="cizimAraclari">
+                <div class="araclarGrup">  
+                    <label for="renk">Renk:</label>
+                    <input id="renk" type="color" value="#000000">
+                </div>
+
+                <div class="araclarGrup">
+                    <label for="kalinlik">Kalınlık:</label>
+                    <input id="kalinlik" type="number" value="5" min="1" max="50">
+                </div>
+                
+                <button id="temizle">Temizle</button>
+            </div>
+
+            <!-- Tahmin girme alanı ve kontrol butonu -->
+            <div id="tahminAlani">
+                <label for="tahminInput" style="flex-shrink: 0;">Tahmininiz:</label>
+                <input id="tahminInput" type="text" placeholder="Tahmininizi yazın"/>
+                <button id="tahminKontrolBtn">Tahmini Kontrol Et</button>
+            </div>
+        </div>
+    </section>
+    
+<!-- Oyun script dosyası -->
+<script src="./script/script.js" defer></script>
+</body>
+</html>
